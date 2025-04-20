@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حجز تذاكر مهرجان الريف الكوميدي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #fdf4f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #f58fc1;
+      color: white;
+      text-align: center;
+      padding: 1.5em;
+    }
+    section {
+      max-width: 600px;
+      margin: 2em auto;
+      background: white;
+      padding: 2em;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #d94c9d;
+    }
+    label {
+      display: block;
+      margin-top: 1em;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 0.8em;
+      margin-top: 0.5em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #d94c9d;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #c13f8e;
+    }
+    footer {
+      text-align: center;
+      margin: 2em 0;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>حجز تذاكر مهرجان الريف الكوميدي العاشر</h1>
+    <p>9 - 13 مايو 2025 | الصالة الثقافية</p>
+  </header>
+  <section>
+    <h2>احجز مقعدك الآن</h2>
+    <form action="https://wa.me/97336422888" method="get" target="_blank">
+      <label for="name">الاسم الكامل</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="phone">رقم الهاتف</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="show">اختر العرض المسرحي</label>
+      <select id="show" name="show">
+        <option value="توم سوير - السبت 10 مايو">توم سوير - السبت 10 مايو</option>
+        <option value="ملجة طلاق - الأحد 11 مايو">ملجة طلاق - الأحد 11 مايو</option>
+        <option value="عنتر هالأيام - الإثنين 12 مايو">عنتر هالأيام - الإثنين 12 مايو</option>
+      </select>
+
+      <button type="submit">تأكيد الحجز عبر واتساب</button>
+    </form>
+  </section>
+  <footer>
+    © 2025 مهرجان الريف الكوميدي
+  </footer>
+</body>
+</html>
