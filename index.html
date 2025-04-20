@@ -31,24 +31,27 @@
     h2 {
       color: #d94c9d;
     }
-    label {
+    label, select {
       display: block;
-      margin-top: 1em;
-    }
-    input, select, button {
       width: 100%;
-      padding: 0.8em;
-      margin-top: 0.5em;
-      border: 1px solid #ccc;
+      margin-top: 1em;
+      padding: 0.6em;
+      font-size: 1em;
       border-radius: 8px;
     }
-    button {
+    .button {
+      display: block;
+      width: 100%;
+      padding: 1em;
+      margin: 1em 0;
+      text-align: center;
       background-color: #d94c9d;
       color: white;
       font-weight: bold;
-      cursor: pointer;
+      border-radius: 8px;
+      text-decoration: none;
     }
-    button:hover {
+    .button:hover {
       background-color: #c13f8e;
     }
     footer {
@@ -57,30 +60,41 @@
       color: #aaa;
     }
   </style>
+  <script>
+    function updateLinks() {
+      const count = document.getElementById("ticketCount").value;
+      document.getElementById("link1").href = `https://wa.me/97336422888?text=أرغب+في+حجز+${count}+تذكرة+لعرض+توم+سوير+يوم+السبت+10+مايو+2025`;
+      document.getElementById("link2").href = `https://wa.me/97336422888?text=أرغب+في+حجز+${count}+تذكرة+لعرض+ملجة+طلاق+يوم+الأحد+11+مايو+2025`;
+      document.getElementById("link3").href = `https://wa.me/97336422888?text=أرغب+في+حجز+${count}+تذكرة+لعرض+عنتر+هالأيام+يوم+الإثنين+12+مايو+2025`;
+    }
+  </script>
 </head>
-<body>
+<body onload="updateLinks()">
   <header>
     <h1>حجز تذاكر مهرجان الريف الكوميدي العاشر</h1>
     <p>9 - 13 مايو 2025 | الصالة الثقافية</p>
   </header>
   <section>
-    <h2>احجز مقعدك الآن</h2>
-    <form action="https://wa.me/97336422888" method="get" target="_blank">
-      <label for="name">الاسم الكامل</label>
-      <input type="text" id="name" name="name" required>
+    <h2>اختر عدد التذاكر والعرض المسرحي</h2>
 
-      <label for="phone">رقم الهاتف</label>
-      <input type="tel" id="phone" name="phone" required>
+    <label for="ticketCount">عدد التذاكر:</label>
+    <select id="ticketCount" onchange="updateLinks()">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
 
-      <label for="show">اختر العرض المسرحي</label>
-      <select id="show" name="show">
-        <option value="توم سوير - السبت 10 مايو">توم سوير - السبت 10 مايو</option>
-        <option value="ملجة طلاق - الأحد 11 مايو">ملجة طلاق - الأحد 11 مايو</option>
-        <option value="عنتر هالأيام - الإثنين 12 مايو">عنتر هالأيام - الإثنين 12 مايو</option>
-      </select>
+    <a id="link1" class="button" href="#" target="_blank">🎭 توم سوير – السبت 10 مايو</a>
+    <a id="link2" class="button" href="#" target="_blank">🎭 ملجة طلاق – الأحد 11 مايو</a>
+    <a id="link3" class="button" href="#" target="_blank">🎭 عنتر هالأيام – الإثنين 12 مايو</a>
 
-      <button type="submit">تأكيد الحجز عبر واتساب</button>
-    </form>
   </section>
   <footer>
     © 2025 مهرجان الريف الكوميدي
