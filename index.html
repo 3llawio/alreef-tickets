@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -31,13 +30,14 @@
     h2 {
       color: #d94c9d;
     }
-    label, select {
+    label, select, input {
       display: block;
       width: 100%;
       margin-top: 1em;
       padding: 0.6em;
       font-size: 1em;
       border-radius: 8px;
+      border: 1px solid #ccc;
     }
     .button {
       display: block;
@@ -62,20 +62,33 @@
   </style>
   <script>
     function updateLinks() {
+      const name = document.getElementById("fullName").value || "اسم غير مُدخل";
+      const phone = document.getElementById("phoneNumber").value || "رقم غير مُدخل";
       const count = document.getElementById("ticketCount").value;
-      document.getElementById("link1").href = `https://wa.me/97336422888?text=أرغب+في+حجز+${count}+تذكرة+لعرض+توم+سوير+يوم+السبت+10+مايو+2025`;
-      document.getElementById("link2").href = `https://wa.me/97336422888?text=أرغب+في+حجز+${count}+تذكرة+لعرض+ملجة+طلاق+يوم+الأحد+11+مايو+2025`;
-      document.getElementById("link3").href = `https://wa.me/97336422888?text=أرغب+في+حجز+${count}+تذكرة+لعرض+عنتر+هالأيام+يوم+الإثنين+12+مايو+2025`;
+
+      const msg1 = `https://wa.me/97336422888?text=الاسم:+${encodeURIComponent(name)}+%0Aرقم+الهاتف:+${encodeURIComponent(phone)}+%0Aأرغب+في+حجز+${count}+تذكرة+لعرض+توم+سوير+يوم+السبت+10+مايو+2025`;
+      const msg2 = `https://wa.me/97336422888?text=الاسم:+${encodeURIComponent(name)}+%0Aرقم+الهاتف:+${encodeURIComponent(phone)}+%0Aأرغب+في+حجز+${count}+تذكرة+لعرض+ملجة+طلاق+يوم+الأحد+11+مايو+2025`;
+      const msg3 = `https://wa.me/97336422888?text=الاسم:+${encodeURIComponent(name)}+%0Aرقم+الهاتف:+${encodeURIComponent(phone)}+%0Aأرغب+في+حجز+${count}+تذكرة+لعرض+عنتر+هالأيام+يوم+الإثنين+12+مايو+2025`;
+
+      document.getElementById("link1").href = msg1;
+      document.getElementById("link2").href = msg2;
+      document.getElementById("link3").href = msg3;
     }
   </script>
 </head>
-<body onload="updateLinks()">
+<body>
   <header>
     <h1>حجز تذاكر مهرجان الريف الكوميدي العاشر</h1>
     <p>9 - 13 مايو 2025 | الصالة الثقافية</p>
   </header>
   <section>
-    <h2>اختر عدد التذاكر والعرض المسرحي</h2>
+    <h2>املأ بياناتك واختر العرض</h2>
+
+    <label for="fullName">الاسم الكامل:</label>
+    <input type="text" id="fullName" oninput="updateLinks()" required>
+
+    <label for="phoneNumber">رقم الهاتف:</label>
+    <input type="tel" id="phoneNumber" oninput="updateLinks()" required>
 
     <label for="ticketCount">عدد التذاكر:</label>
     <select id="ticketCount" onchange="updateLinks()">
